@@ -1,28 +1,80 @@
 # Codeshift
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/codeshift`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A Ruby codemod CLI to transform your source code using AST(Abstract Syntax Trees) and the [parser](https://github.com/whitequark/parser) gem. It is typically used on ruby codebase like RAILS applications and other stuff.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'codeshift'
+```sh
+$ gem install codeshift
 ```
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install codeshift
 
 ## Usage
+This tool requires a `transform.rb` file which contains the transform logic to be 
+applied on the source files in a folder.
 
-TODO: Write usage instructions here
+```sh
+$ codeshift -t [TRANSFORM FILE] [PATHS]
+```
+
+To apply the transform logic on your `app/models` files
+
+```sh
+$ codeshift -t transform.rb app/models/**/*.rb
+```
+
+For example if you want to reverse the local variable names and method names in your code
+you will be doing something like this:
+
+Create a new ruby file with the tranformation logic to be applied on the
+AST of the source code. For writing transforms you can make use of the 
+[Ruby AST Explorer](https://ruby-ast-explorer.herokuapp.com/)
+
+### transform.rb
+```ruby
+# Your Transform Class should always extend from 
+# Parser:: TreeRewriter
+class Transform < Parser::TreeRewriter
+  def on_lvasgn(node)
+    # Reverse the variable names
+    replace(node.loc.to_hash[:name], node.children[0].to_s.reverse)
+  end
+
+  def on_def(node)
+    replace(node.loc.to_hash[:name], node.children[0].to_s.reverse)
+  end
+end
+
+```
+
+If your source code looks like below in a folder called `~/Desktop/test/ruby`
+
+### sample.rb
+```ruby
+tips = ["hello", "world"]
+def print_tips
+  tips.each { |key, value| print "Tip #{key}: #{value}" }
+end
+```
+
+Then use it against your source code
+
+```sh
+$ codeshift -t transform.rb ~/Desktop/test/ruby/**/*.rb
+```
+
+Then your source will be transformed something like:
+
+### sample.rb
+```ruby
+spit = ["hello", "world"]
+def spit_tnirp
+  tips.each { |key, value| print "Tip #{key}: #{value}" }
+end
+
+```
+
+
 
 ## Development
 
