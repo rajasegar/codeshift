@@ -6,6 +6,10 @@ module CodeShift
       OptionParser.new do |opts|
         opts.banner = "Usage: codeshift -t <transform-file> [path]"
 
+        opts.on("--version", "Print version number") do |q|
+          puts Codeshift::VERSION
+          exit
+        end
       end
     end
 
