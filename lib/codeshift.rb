@@ -1,6 +1,3 @@
 require "codeshift/version"
-
-module Codeshift
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require "codeshift/codeshift_options"
+require "codeshift/codeshift_transformer"
