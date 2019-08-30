@@ -2,6 +2,7 @@ require 'optparse'
 require 'codeshift/codeshift_options'
 require 'codeshift/codeshift_transformer'
 require 'codeshift/version'
+require 'open-uri'
 
 module CodeShift
   class CLI
@@ -30,17 +31,22 @@ module CodeShift
     end
 
     def run
-      puts "Codeshift =>"
-      #puts paths
-      #puts @options.transform
       paths = @files.length > 0 ? @files : []
       paths.each do |path|
-        Dir.glob(path) do |file_path|
-          puts "Processing: #{file_path}"
-          code = File.read(file_path)
-          transform = File.read(@options.transform)
+        if File.directory?(path)
+          Dir.glob(path) do |file_path|
+            puts "Processing: #{file_path}"
+            code = File.read(file_path)
+            transform = open(@options.transform) { |f| f.read } 
+            output = Codeshift::CodeshiftTransformer.new(code, transform).transform
+            File.write(file_path, output)
+          end
+        else
+          puts "Processing: #{path}"
+          code = File.read(path)
+          transform = open(@options.transform) { |f| f.read } 
           output = Codeshift::CodeshiftTransformer.new(code, transform).transform
-          File.write(file_path, output)
+          File.write(path, output)
         end
       end
     end
