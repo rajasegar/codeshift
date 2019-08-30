@@ -74,7 +74,30 @@ end
 
 ```
 
+## Options
+Usage: codeshift -t <transform-file> [path]
+* --version                    Print version number
+* -t, --transform=TRANSFORM        path to the transform file. Can be either a local path or url
+             (default: ./transform.rb)
+* -h, --help                       Prints this help
 
+### tranfrom-file
+The transform file could be a local file or a remote url. For example you can use like
+
+```sh
+$ codeshift -t https://gist.githubusercontent.com/rajasegar/c9fdbc0a5e64fa885d5362e57d57eb11/raw/47f2d1289ca2f8a08229bc2b71572e26b73fe6f3/transform.rb ~/Desktop/test/ruby/**/*.rb
+```
+
+### path
+The path could be a list of directories or files separated by space.
+
+```sh
+$ codeshift -t transform.rb ~/app/legacy/ruby/**/*.rb ~/app/old/**/*.rb
+```
+
+```sh
+$ codeshift -t transform.rb ~/code/legacy/app/models/account.rb ~/old/app/models/customer.rb
+```
 
 ## Development
 
