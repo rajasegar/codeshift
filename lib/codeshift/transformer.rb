@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
 require 'parser/current'
 
 module Codeshift
-  class CodeshiftTransformer
+  # Transformer Class
+  class Transformer
     def initialize(code, transform)
       @code = code
       @transform = transform
@@ -13,10 +16,10 @@ module Codeshift
       buffer        = Parser::Source::Buffer.new('(example)')
       buffer.source = @code
       temp = Parser::CurrentRuby.parse(@code)
-      rewriter      = Transform.new
+      rewriter = Transform.new
 
       # Rewrite the AST, returns a String with the new form.
-      output =  rewriter.rewrite(buffer, temp)
+      output = rewriter.rewrite(buffer, temp)
 
     end
   end
