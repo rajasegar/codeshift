@@ -1,6 +1,7 @@
 # Codeshift
 
-A Ruby codemod CLI to transform your source code using AST(Abstract Syntax Trees) and the [parser](https://github.com/whitequark/parser) gem. It is typically used on ruby codebase like RAILS applications and other stuff.
+A Ruby codemod CLI to transform your source code using AST(Abstract Syntax Trees) and the [parser](https://github.com/whitequark/parser) gem. 
+It is typically used on ruby codebase like RAILS applications and other stuff.
 
 ## Installation
 
@@ -85,7 +86,7 @@ Usage: codeshift -t <transform-file> [path]
 The transform file could be a local file or a remote url. For example you can use like
 
 ```sh
-$ codeshift -t https://gist.githubusercontent.com/rajasegar/c9fdbc0a5e64fa885d5362e57d57eb11/raw/47f2d1289ca2f8a08229bc2b71572e26b73fe6f3/transform.rb ~/Desktop/test/ruby/**/*.rb
+$ codeshift -t https://gist.githubusercontent.com/[user]/.../transform.rb ~/Desktop/test/ruby/**/*.rb
 ```
 
 ### path
@@ -107,7 +108,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/codeshift. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/rajasegar/codeshift. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
