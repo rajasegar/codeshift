@@ -30,23 +30,23 @@ module CodeShift
       @files = ARGV
     end
 
+    def process_file(file_path)
+      puts "Processing: #{file_path}"
+      code = File.read(file_path)
+      transform = open(@options.transform) { |f| f.read } 
+      output = Codeshift::CodeshiftTransformer.new(code, transform).transform
+      File.write(file_path, output)
+    end
+
     def run
       paths = @files.length > 0 ? @files : []
       paths.each do |path|
         if File.directory?(path)
           Dir.glob(path) do |file_path|
-            puts "Processing: #{file_path}"
-            code = File.read(file_path)
-            transform = open(@options.transform) { |f| f.read } 
-            output = Codeshift::CodeshiftTransformer.new(code, transform).transform
-            File.write(file_path, output)
+            process_file file_path
           end
         else
-          puts "Processing: #{path}"
-          code = File.read(path)
-          transform = open(@options.transform) { |f| f.read } 
-          output = Codeshift::CodeshiftTransformer.new(code, transform).transform
-          File.write(path, output)
+          process_file path
         end
       end
     end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Codeshift
   class CodeshiftOptions
     attr_accessor :file_path
@@ -5,9 +7,7 @@ module Codeshift
 
     def initialize
       @file_path = nil
-      @transform = "./transform.rb"
+      @transform = './transform.rb'
     end
-
-
   end
 end
