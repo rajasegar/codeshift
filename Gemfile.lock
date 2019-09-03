@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    codeshift (0.1.5)
+    codeshift (0.1.6)
       parser (~> 2.6)
 
 GEM
