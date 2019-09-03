@@ -3,7 +3,11 @@ RSpec.describe Codeshift do
     expect(Codeshift::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  it "does apply the transform" do
+    input = File.read('./spec/fixtures/input.rb')
+    transform = File.read('./spec/fixtures/transform.rb')
+    output = File.read('./spec/fixtures/output.rb')
+    result = Codeshift::Transformer.new(input, transform).transform
+    expect(result).to eq(output)
   end
 end
