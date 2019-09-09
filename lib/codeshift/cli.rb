@@ -35,13 +35,15 @@ module CodeShift
     def process_file(file_path)
       puts "Processing: #{file_path}"
       code = File.read(file_path)
-      transform = open(@options.transform, '&:read')
+      # transform = open(@options.transform, '&:read')
+      response = open(@options.transform)
+      transform = response.read
       output = Codeshift::Transformer.new(code, transform).transform
       File.write(file_path, output)
     end
 
     def run
-      paths = @files.!empty? ? @files : []
+      paths = @files.empty? ? [] : @files
       paths.each do |path|
         if File.directory?(path)
           Dir.glob(path) do |file_path|
