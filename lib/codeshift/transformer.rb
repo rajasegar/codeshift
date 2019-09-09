@@ -15,11 +15,16 @@ module Codeshift
 
       buffer        = Parser::Source::Buffer.new('(example)')
       buffer.source = @code
-      temp = Parser::CurrentRuby.parse(@code)
-      rewriter = Transform.new
+      begin
+        temp = Parser::CurrentRuby.parse(@code)
+        rewriter = Transform.new
 
-      # Rewrite the AST, returns a String with the new form.
-      output = rewriter.rewrite(buffer, temp)
+        # Rewrite the AST, returns a String with the new form.
+        output = rewriter.rewrite(buffer, temp)
+      rescue
+        puts "Unknown parsing error"
+        @code
+      end
 
     end
   end
