@@ -46,7 +46,8 @@ module CodeShift
       paths = @files.empty? ? [] : @files
       paths.each do |path|
         if File.directory?(path)
-          Dir.glob(path) do |file_path|
+          glob_path = File.join(path,'**','*.rb')
+          Dir.glob(glob_path) do |file_path|
             process_file file_path
           end
         else

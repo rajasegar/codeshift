@@ -23,7 +23,7 @@ $ codeshift -t [TRANSFORM FILE] [PATHS]
 To apply the transform logic on your `app/models` files
 
 ```sh
-$ codeshift -t transform.rb app/models/**/*.rb
+$ codeshift -t transform.rb app/models
 ```
 
 For example if you want to reverse the local variable names and method names in your code
@@ -63,7 +63,7 @@ end
 Then use it against your source code
 
 ```sh
-$ codeshift -t transform.rb ~/Desktop/test/ruby/**/*.rb
+$ codeshift -t transform.rb ~/Desktop/test/ruby
 ```
 
 Then your source will be transformed something like:
@@ -88,14 +88,14 @@ Usage: codeshift -t <transform-file> [path]
 The transform file could be a local file or a remote url. For example you can use like
 
 ```sh
-$ codeshift -t https://gist.githubusercontent.com/[user]/.../transform.rb ~/Desktop/test/ruby/**/*.rb
+$ codeshift -t https://gist.githubusercontent.com/[user]/.../transform.rb ~/Desktop/test/ruby
 ```
 
 ### path
 The path could be a list of directories or files separated by space.
 
 ```sh
-$ codeshift -t transform.rb ~/app/legacy/ruby/**/*.rb ~/app/old/**/*.rb
+$ codeshift -t transform.rb ~/app/legacy/ruby ~/app/old
 ```
 
 ```sh
