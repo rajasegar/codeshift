@@ -102,6 +102,10 @@ $ codeshift -t transform.rb ~/app/legacy/ruby ~/app/old
 $ codeshift -t transform.rb ~/code/legacy/app/models/account.rb ~/old/app/models/customer.rb
 ```
 
+## Related tools
+- [ruby-ast-explorer](https://github.com/rajasegar/ruby-ast-explorer]
+- [cybertron](https://github.com/rajasegar/cybertron]
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
