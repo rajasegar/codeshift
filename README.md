@@ -3,6 +3,7 @@
 [![Gem Version](https://badge.fury.io/rb/codeshift.svg)](https://badge.fury.io/rb/codeshift)
 [![Build Status](https://travis-ci.org/rajasegar/codeshift.svg?branch=master)](https://travis-ci.org/rajasegar/codeshift) 
 ![](https://ruby-gem-downloads-badge.herokuapp.com/codeshift?type=total&style=plastic&color=brightgreen&total_label=)
+[![Coverage Status](https://coveralls.io/repos/github/rajasegar/codeshift/badge.svg?branch=master)](https://coveralls.io/github/rajasegar/codeshift?branch=master)
 
 A Ruby codemod CLI to transform your source code using AST(Abstract Syntax Trees) and the [parser](https://github.com/whitequark/parser) gem. 
 It is typically used on ruby codebase like RAILS applications and other stuff.
