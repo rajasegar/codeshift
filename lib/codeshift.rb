@@ -1,3 +1,5 @@
-require "codeshift/version"
-require "codeshift/options"
-require "codeshift/transformer"
+# frozen_string_literal: true
+
+require 'codeshift/version'
+require 'codeshift/options'
+require 'codeshift/transformer'

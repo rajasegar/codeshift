@@ -22,10 +22,9 @@ module Codeshift
         # Rewrite the AST, returns a String with the new form.
         output = rewriter.rewrite(buffer, temp)
       rescue
-        puts "Unknown parsing error"
+        puts 'Unknown parsing error'
         @code
       end
-
     end
   end
 end

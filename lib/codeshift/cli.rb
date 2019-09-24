@@ -23,7 +23,7 @@ module CodeShift
           @options.transform = f
         end
 
-        opts.on("-h", "--help", "Prints this help") do
+        opts.on('-h', '--help', 'Prints this help') do
           puts opts
           exit
         end
@@ -46,7 +46,7 @@ module CodeShift
       paths = @files.empty? ? [] : @files
       paths.each do |path|
         if File.directory?(path)
-          glob_path = File.join(path,'**','*.rb')
+          glob_path = File.join(path, '**', '*.rb')
           Dir.glob(glob_path) do |file_path|
             process_file file_path
           end
