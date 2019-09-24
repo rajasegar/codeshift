@@ -6,7 +6,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/rajasegar/codeshift/badge.svg?branch=master)](https://coveralls.io/github/rajasegar/codeshift?branch=master)
 
 A Ruby codemod CLI to transform your source code using AST(Abstract Syntax Trees) and the [parser](https://github.com/whitequark/parser) gem. 
-It is typically used on ruby codebase like RAILS applications and other stuff.
+It is typically used on Ruby codebase like RAILS applications and other stuff.
 
 ## Installation
 
@@ -32,8 +32,8 @@ $ codeshift -t transform.rb app/models
 For example if you want to reverse the local variable names and method names in your code
 you will be doing something like this:
 
-Create a new ruby file with the tranformation logic to be applied on the
-AST of the source code. For writing transforms you can make use of the 
+Create a new Ruby file with the tranformation logic to be applied on the
+AST of the source code. For writing transforms you can make use of 
 [Ruby AST Explorer](https://ruby-ast-explorer.herokuapp.com/) and [cybertron](https://github.com/rajasegar/cybertron)
 
 ### transform.rb
@@ -43,11 +43,11 @@ AST of the source code. For writing transforms you can make use of the
 class Transform < Parser::TreeRewriter
   def on_lvasgn(node)
     # Reverse the variable names
-    replace(node.loc.to_hash[:name], node.children[0].to_s.reverse)
+    replace(node.loc.name, node.children[0].to_s.reverse)
   end
 
   def on_def(node)
-    replace(node.loc.to_hash[:name], node.children[0].to_s.reverse)
+    replace(node.loc.name, node.children[0].to_s.reverse)
   end
 end
 
@@ -63,7 +63,7 @@ def print_tips
 end
 ```
 
-Then use it against your source code
+Then use the transform against your source code
 
 ```sh
 $ codeshift -t transform.rb ~/Desktop/test/ruby
@@ -87,8 +87,8 @@ Usage: codeshift -t <transform-file> [path]
              (default: ./transform.rb)
 * -h, --help                       Prints this help
 
-### tranfrom-file
-The transform file could be a local file or a remote url. For example you can use like
+### transfrom-file
+The transform file could be a local file or a remote url. For example you can use a remote transform like below:
 
 ```sh
 $ codeshift -t https://gist.githubusercontent.com/[user]/.../transform.rb ~/Desktop/test/ruby
