@@ -31,7 +31,7 @@ you will be doing something like this:
 
 Create a new ruby file with the tranformation logic to be applied on the
 AST of the source code. For writing transforms you can make use of the 
-[Ruby AST Explorer](https://ruby-ast-explorer.herokuapp.com/)
+[Ruby AST Explorer](https://ruby-ast-explorer.herokuapp.com/) and [cybertron](https://github.com/rajasegar/cybertron)
 
 ### transform.rb
 ```ruby
@@ -101,6 +101,10 @@ $ codeshift -t transform.rb ~/app/legacy/ruby ~/app/old
 ```sh
 $ codeshift -t transform.rb ~/code/legacy/app/models/account.rb ~/old/app/models/customer.rb
 ```
+
+## Related tools
+- [ruby-ast-explorer](https://github.com/rajasegar/ruby-ast-explorer]
+- [cybertron](https://github.com/rajasegar/cybertron]
 
 ## Development
 
