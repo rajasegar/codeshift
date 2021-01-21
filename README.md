@@ -106,8 +106,8 @@ $ codeshift -t transform.rb ~/code/legacy/app/models/account.rb ~/old/app/models
 ```
 
 ## Related tools
-- [ruby-ast-explorer](https://github.com/rajasegar/ruby-ast-explorer]
-- [cybertron](https://github.com/rajasegar/cybertron]
+- [ruby-ast-explorer](https://github.com/rajasegar/ruby-ast-explorer)
+- [cybertron](https://github.com/rajasegar/cybertron)
 
 ## Development
 
@@ -125,4 +125,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Codeshift project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/codeshift/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Codeshift project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/rajasegar/codeshift/blob/master/CODE_OF_CONDUCT.md).
