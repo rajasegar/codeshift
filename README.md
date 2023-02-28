@@ -87,7 +87,7 @@ Usage: codeshift -t <transform-file> [path]
              (default: ./transform.rb)
 * -h, --help                       Prints this help
 
-### transfrom-file
+### transform-file
 The transform file could be a local file or a remote url. For example you can use a remote transform like below:
 
 ```sh
